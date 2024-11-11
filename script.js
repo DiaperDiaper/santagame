@@ -87,7 +87,9 @@ function draw() {
 function gameLoop() {
     if (gameRunning) {
         update();
+        updateSnowflakes();
         draw();
+        drawSnowflakes();
         requestAnimationFrame(gameLoop);
     }
 }
@@ -110,13 +112,12 @@ canvas.addEventListener('touchmove', (event) => {
     const touchEndX = event.touches[0].clientX;
     const touchDiff = touchEndX - touchStartX;
 
-    // Move Santa based on drag distance
-    if (Math.abs(touchDiff) > 10) {  // A smaller threshold to make the swipe more responsive
-        santa.x += touchDiff * 0.2;  // Sensitivity factor (makes the movement smoother)
-        if (santa.x < 0) santa.x = 0;  // Prevent moving out of bounds
-        if (santa.x > canvas.width - santa.width) santa.x = canvas.width - santa.width;
-        touchStartX = touchEndX;
-    }
+    // Move Santa based on drag distance with a higher sensitivity factor
+    santa.x += touchDiff * 0.4;  // Increased sensitivity for faster response
+    if (santa.x < 0) santa.x = 0;  // Prevent moving out of bounds
+    if (santa.x > canvas.width - santa.width) santa.x = canvas.width - santa.width;
+
+    touchStartX = touchEndX;  // Update start point for the next movement
 });
 
 canvas.addEventListener('touchend', () => {
