@@ -1,0 +1,128 @@
+/* General reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Body and container styling */
+body {
+    background: linear-gradient(135deg, #88d1e6, #ffcccc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Title styling */
+h1 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    animation: slideIn 1s ease-out;
+}
+
+/* Scoreboard styling */
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    animation: fadeIn 1.2s ease-in;
+}
+
+#highScore, #score {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Canvas styling */
+#gameCanvas {
+    width: 100%;
+    height: 300px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    margin: 10px 0;
+    background-color: #f0f8ff;
+    animation: zoomIn 0.8s ease-in-out;
+}
+
+/* Button styling */
+.controls {
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+@keyframes snowfall {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
